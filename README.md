@@ -1,85 +1,42 @@
-# p6_classer_des_images
-# CNN (réseaux de neurones convolutionnels), transfer learning
+# projet 7, Speech to text (+ translation)
+# transformer model, local, no API
+# pytorch, dataset fr
 
-Le but de ce projet est de d'aider une association (fictive) de protection des animaux,
-en mettant à leur disposition un algorithme capable de classer les images en fonction de la race du chien présent sur l'image.
-Cet algorithme doit bien entendu être aussi fiable que possible, rapide et simple d'utilisation.
+# projet original : https://www.kaggle.com/code/stpeteishii/french-audio-wav2vec2-translation
+# pbblmt inspiré (?) par : https://www.kaggle.com/code/dikshabhati2002/speech-to-text-with-hugging-face/notebook
 
+# Il y a encore 2 ans, le modèle wav2vec2 de facebook obtenait les meilleures performances en termes de transcription speech to text.
+# Les espaces d'embedding contextualisés, similaires à ceux qu'on utilise en NLP (word2vec, doc2vec, glove, etc...)
+# semblaient être l'approche la plus prometteuse pour construire un "traducteur universel".
 
-Etapes principales :
-
-    Les images utilisées pour entrainer nos modèles proviennent du Stanford Dogs Dataset.
-Ce datatset contient plus de 20 000 images, regroupées par races de chien.
-    Point important pour nous : il n'est pas inclus dans le dataset "imagenet", 
-qui a servi a entrainer les modeles que nous utiliserons en partie 3.
+# Il y a un an environ, l'architecture des transformers encoder-decoder, similaire à celle des LLMs, a révolutionné le domaine.
 
 
-1) Prétraitement classique
-
-    Le premier notebook contient l'exploration et le nettoyage des données, ainsi que plusieurs étapes de prétraitements 
-spécifiques aux images : redimensionnement, ajustement du contraste et de l'exposition, adoucissement du bruit grâce à différents filtres
-(gaussien, bilinéaire, non-local).
-    Notons qu'aujourd'hui ces étapes sont directement intégrées dans les premières couches des réseaux neuronaux, ce qui présente plusieurs avantages
-(simplicité, compatibilité, gestion de la mémoire vive...)
+# Ce projet comporte 2 notebooks + une appli
 
 
-2) Entrainement d'un modèle perso
+	# 1 Présentation du dataset de test, EDA rapide
 
-    Dans le notebook 2_1, nous utilisons keras avec tensorflow en backend pour créer un premier modèle séquentiel très simple.
-Il s'agit d'une architecture inspirée de LeNet 5, comprenant 2 couches de convolution + maxpooling, 1 flatten et 2 denses fully-connected,
-pour un total de moins d'un million de paramètres.
-    Ce modèle nous permet d'abord, dans une certaine mesure, d'analyser les prétraitements effectués.
-Pour cela l'ui mlflow est très pratique.
-    Nous pouvons ensuite commencer l'optimisation des hyperparamètres du modèle, avec keras tuner ou optuna par exemple :
-nb et taille des filtres (couches conv), nombre de neurones pour la première couche f-c, fonction d'activation, optimizer.
-    Pour pouvoir entrainer en parallèle plusieurs modèles (pour 3, 4, 5 classes), une copie de ce notebook, légèrement modifiée,
-(imports, adresses locales remplacées par les adresses sur le drive) est compatible avec Colab.
+? note sur preprocessing audio classique ? mel-freq, spectrogramme (+ FFT) + CNN (par exemple)
 
-    La recherche d'amélioration des modèles persos se poursuit dans le notebook 2_2, 
-d'abord en ajoutant au modèles des couches de data augmentation,
-puis en continuant l'optimisation des hyperparamètres (nombre d'epochs, épaisseur des couches de convolution, nombre de blocs conv,
-dropout, batch size).
+# evaluation objective et quantifiée de la transcription par le modèle original
+# metrique : WER(Word error rate) 
 
-    En quelques jours il est possible d'entrainer des modèles aux résultats significatifs (accuracy entre 0.7 et 0.8), mais seulement
-sur un nombre très limité de classes. Pour obtenir rapidement un résultat bien meilleur, nous allons passer au transfer learning
-sur des modèles préentrainés. 
+# evaluation de la traduction (bonus)
+# plus difficile à quantifier, observation sur qq exemples
 
 
-3) Tansfer learning
+	# 2 Nouvelle approche : whisper
 
-    Ce notebook permet de fine-tuner sur nos données plusieurs modèles :
-    
-- un modèle classique, VGG_16
-- les 4 modèles les + performants parmi tous ceux disponibles sur keras.application (évaluéation sur ImageNet validation dataset) :
-'EfficientNetV2L', 'NASNetLarge', 'EfficientNetV2S', 'InceptionResNetV2'
-- les 2 meilleurs parmi les modèles + légers : 'NASNetMobile' et 'MobileNetV2'
-
-    Une fois le meilleur modèle choisi, il ne reste plus qu'à le déployer !
+# transcription
+# traduction
 
 
-4) Applis
+	# 3 Appli locale streamlit
 
-    Deux applications réalisées avec streamlit :
-    
-    La première, app_test.py, permet de tester en local les prédictions du modèle choisi, 
-en tirant au hasard une image (non utilisée pour l'entrainement), 
-puis en affichant sa classe réelle et les 2 premières classes prédites par le modèle (+ probas associées).
+# Il existe de nombreuses API que l'on peut aujourd'hui facilement requêter, par exemple avec langchain, ou directement sur vortex.
+# Cela peut permettre une économie en ressources.
 
-    La seconde, app_asso.py, est une version + conforme au besoin réel de notre association imaginaire :
-Le modèle renvoit une prédiction pour toute image uploadée (drag and drop). 
-C'est cette version qui est déployée, avec un tracking lfs pour notre modèle, à l'adresse :
+# Pour ce projet, on peut imaginer que pour des raisons de sécurité ou de confidentialité on souhaite plutôt utiliser un modèle local.
+# Cette solution présente aussi l'avantage de fonctionner hors-connexion.
 
-
-https://image-classification-dog-breeds.streamlit.app/ 
-
-
-    Après une modification du code, par exemple si l'on décide d'envoyer une requête vers une base de données, pour y ajouter la nouvelle entrée automatiquement,
-il suffit d'effectuer un push vers github. Streamlit prend en charge le reste de l'intégration continue, à partir du répo distant. 
-
-    Bien entendu, vérifier ensuite que tout est ok. Une modification importante du code peut entrainer le rechargement de l'environnement ou du modèle en cache,
-mais une seule fois (cela prend qq minutes). Ensuite l'accès à l'appli redevient instantané.
-
-
-
-
-    
