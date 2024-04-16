@@ -2,7 +2,16 @@
 
 
 # ui
-import streamlit as st
+try:
+    import streamlit as st
+    from audio-recorder-streamlit import audio-recorder
+except:
+    print('Installing streamlit...')
+    %pip install streamlit
+    %pip install audio-recorder-streamlit
+    print('Done')
+    import streamlit as st
+    from audio-recorder-streamlit import audio-recorder
 
 # paths, folders/files
 import os, sys, random, re
