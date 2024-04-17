@@ -34,6 +34,7 @@ except:
 
 try:
     import whisper
+    from whisper import load_model
 except:
     print('Installing whisper...')
     # Define the package URL
@@ -43,6 +44,7 @@ except:
     subprocess.run(["pip", "install", package_url])
     print('done')
     import whisper
+    from whisper import load_model
 
 # import pickle
 
@@ -50,14 +52,14 @@ except:
 
 # load and cache the model
 @st.cache_resource
-def load_model():
+def load_and_cache_model():
     # Load the pre-trained model
-    model = whisper.load_model('medium')
+    model = load_model('medium')
 
     return model
 
 # Load the model
-model = load_model()
+model = load_and_cache_model()
 
 
 # Function to handle file upload
