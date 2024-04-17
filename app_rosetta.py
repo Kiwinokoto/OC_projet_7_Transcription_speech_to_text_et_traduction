@@ -22,7 +22,8 @@ import librosa
 package_url = "git+https://github.com/openai/whisper.git"
 
 # Use subprocess to run pip install command
-subprocess.run([sys.executable, "-m", "pip", "install", package_url])
+# subprocess.run([sys.executable, "-m", "pip", "install", package_url])
+subprocess.run([f"{sys.executable}", "pip install {package_url}"])
 
 import whisper
 from whisper import load_model
@@ -53,7 +54,7 @@ def handle_uploaded_file(model, recorded_speech):
 
 # Main function
 def main(model):
-    st.write(f"Hello")
+    st.write(f"Hello world!")
 
     # mic
     audio_bytes = audio_recorder(
