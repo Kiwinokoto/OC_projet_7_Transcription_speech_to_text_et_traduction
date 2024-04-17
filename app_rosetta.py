@@ -54,7 +54,7 @@ except:
 @st.cache_resource
 def load_and_cache_model():
     # Load the pre-trained model
-    model = load_model('medium')
+    model = load_model('small')
 
     return model
 
