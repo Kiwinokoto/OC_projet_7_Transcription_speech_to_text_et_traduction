@@ -32,19 +32,14 @@ except:
     import librosa
 
 
-try:
-    import whisper
-    from whisper import load_model
-except:
-    print('Installing whisper...')
-    # Define the package URL
-    package_url = "git+https://github.com/openai/whisper.git"
+# Define the package URL
+package_url = "git+https://github.com/openai/whisper.git"
 
-    # Use subprocess to run pip install command
-    subprocess.run(["pip", "install", package_url])
-    print('done')
-    import whisper
-    from whisper import load_model
+# Use subprocess to run pip install command
+subprocess.run(["pip", "install", package_url])
+
+import whisper
+from whisper import load_model
 
 # import pickle
 
@@ -72,6 +67,7 @@ def handle_uploaded_file(model, recorded_speech):
 
 # Main function
 def main(model):
+    st.write(f"Hello")
 
     # mic
     audio_bytes = audio_recorder(
