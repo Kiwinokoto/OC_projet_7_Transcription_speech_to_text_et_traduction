@@ -17,14 +17,6 @@ import pandas as pd
 
 import librosa
 
-
-# Define the package URL
-package_url = "git+https://github.com/openai/whisper.git"
-
-# Use subprocess to run pip install command
-# subprocess.run([sys.executable, "-m", "pip", "install", package_url])
-subprocess.run([f"{sys.executable}", "pip install {package_url}"])
-
 import whisper
 from whisper import load_model
 
