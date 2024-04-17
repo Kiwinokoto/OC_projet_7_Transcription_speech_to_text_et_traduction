@@ -7,4 +7,4 @@ plotly
 pillow
 statsmodels
 scipy
-whisper
+# whisper
