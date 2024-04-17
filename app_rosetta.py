@@ -3,17 +3,9 @@
 
 import subprocess
 
-# ui
-try:
-    import streamlit as st
-    from audio_recorder_streamlit import audio_recorder
-except:
-    print('Installing streamlit...')
-    subprocess.run(["pip", "install", "streamlit"])
-    subprocess.run(["pip", "install", "audio-recorder-streamlit"])
-    print('Done')
-    import streamlit as st
-    from audio_recorder_streamlit import audio_recorder
+
+import streamlit as st
+from audio_recorder_streamlit import audio_recorder
 
 # paths, folders/files
 import os, sys, random, re
@@ -23,20 +15,14 @@ from io import BytesIO
 import numpy as np
 import pandas as pd
 
-try:
-    import librosa
-except:
-    print('Installing librosa...')
-    subprocess.run(["pip", "install", "librosa"])
-    print('done')
-    import librosa
+import librosa
 
 
 # Define the package URL
 package_url = "git+https://github.com/openai/whisper.git"
 
 # Use subprocess to run pip install command
-subprocess.run(["pip", "install", package_url])
+subprocess.run([sys.executable, "-m", "pip", "install", package_url])
 
 import whisper
 from whisper import load_model

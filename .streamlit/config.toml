@@ -1,4 +1,3 @@
 [server]
 maxUploadSize = 2000
-export PATH="/home/appuser/.local/bin:$PATH"
 
