@@ -41,7 +41,8 @@ def handle_uploaded_file(model, recorded_speech):
     audio, sample_rate = librosa.load(BytesIO(recorded_speech))
     transcription = model.transcribe(audio, fp16 = False)['text']
     st.write(f"`{transcription}`")
-
+    translation = model.transcribe(audio, language = 'en', fp16 = False)['text']
+    st.write(f"`{translation}`")
 
 
 # Main function
