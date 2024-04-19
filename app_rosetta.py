@@ -28,7 +28,7 @@ from whisper import load_model
 @st.cache_resource
 def load_and_cache_model():
     # Load the pre-trained model
-    model = load_model('small')
+    model = load_model('medium')
 
     return model
 
