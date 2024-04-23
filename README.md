@@ -9,34 +9,15 @@
 # Les espaces d'embedding contextualisés, similaires à ceux qu'on utilise en NLP (word2vec, doc2vec, glove, etc...)
 # semblaient être l'approche la plus prometteuse pour construire un "traducteur universel".
 
-# Il y a un an environ, l'architecture des transformers encoder-decoder, similaire à celle des LLMs, a révolutionné le domaine.
+# Il y a un an environ, un autre modèle transformer encoder-decoder, Whisper, a pourtant révolutionné le domaine.
 
 
-# Ce projet comporte 2 notebooks + une appli
+# Ce projet comporte : 
+
+# 1 un plan prévisionnel, 
+# 2 un notebook,
+# 3 une note méthodologique,
+# 4 le code de l'appli déployée.
 
 
-	# 1 Présentation du dataset de test, EDA rapide
-
-? note sur preprocessing audio classique ? mel-freq, spectrogramme (+ FFT) + CNN (par exemple)
-
-# evaluation objective et quantifiée de la transcription par le modèle original
-# metrique : WER(Word error rate) 
-
-# evaluation de la traduction (bonus)
-# plus difficile à quantifier, observation sur qq exemples
-
-
-	# 2 Nouvelle approche : whisper
-
-# transcription
-# traduction
-
-
-	# 3 Appli locale streamlit
-
-# Il existe de nombreuses API que l'on peut aujourd'hui facilement requêter, par exemple avec langchain, ou directement sur vortex.
-# Cela peut permettre une économie en ressources.
-
-# Pour ce projet, on peut imaginer que pour des raisons de sécurité ou de confidentialité on souhaite plutôt utiliser un modèle local.
-# Cette solution présente aussi l'avantage de fonctionner hors-connexion.
 
