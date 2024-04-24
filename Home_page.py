@@ -24,7 +24,6 @@ import plotly.express as px
 import librosa
 import librosa.display
 import soundfile as sf
-import sounddevice as sd
 
 # model
 import whisper
