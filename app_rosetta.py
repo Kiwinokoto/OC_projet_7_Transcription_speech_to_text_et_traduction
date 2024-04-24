@@ -1,8 +1,7 @@
-# https://image-classification-dog-breeds.streamlit.app/
+# https://rosetta-stones.streamlit.app/
 
 
 import subprocess
-
 
 import streamlit as st
 from audio_recorder_streamlit import audio_recorder
@@ -21,7 +20,6 @@ import whisper
 from whisper import load_model
 
 # import pickle
-
 
 
 # load and cache the model
@@ -47,7 +45,7 @@ def handle_uploaded_file(model, recorded_speech):
 
 # Main function
 def main(model):
-    st.write(f"Hello world!")
+    st.write(f"Don't panic!")
 
     # mic
     audio_bytes = audio_recorder(

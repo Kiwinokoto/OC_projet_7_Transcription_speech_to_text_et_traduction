@@ -1,0 +1,96 @@
+speaker|gender|partition|minutes|book id|title|chapter
+1406|     M      |test|6.995|1028|   Mille et une nuits, tome 1   |       010 - Dixième nuit      
+1406|     M      |test|4.992|1028|   Mille et une nuits, tome 1   |      009 - Neuvième nuit      
+1406|     M      |test|3.554|1028|   Mille et une nuits, tome 1   | 008 - Huitième nuit. Histoire du pêcheur
+1406|     M      |test|1.734|1417|          À se tordre           |     Le pendu bienveillant     
+1406|     M      |test|7.491|1417|          À se tordre           |            Esthetic           
+1406|     M      |test|4.597|1417|          À se tordre           |    Le comble du darwinisme    
+1406|     M      |test|3.586|1417|          À se tordre           |        Le railleur puni       
+1406|     M      |test|2.167|1417|          À se tordre           |   Pour en avoir le coeur net  
+1406|     M      |test|2.19|2548| Dictionnaire des idées reçues  |              Q-R              
+1406|     M      |test|2.514|2548| Dictionnaire des idées reçues  |               J               
+296|     M      |test|7.901|1028|   Mille et une nuits, tome 1   | 001 - Première nuit : Le marchand et le génie
+296|     M      |test|6.721|1028|   Mille et une nuits, tome 1   |   021 - Vingt et unième nuit  
+296|     M      |test|9.426|486| Tour du monde en quatre-vingts jours | 34 - Qui procure à Passepartout l'occasion de ...
+12977|     F      |test|17.4|10625|              Emma              |          Chapitre IX          
+12977|     F      |test|14.96|10625|              Emma              |         Chapitre VIII         
+12977|     F      |test|7.557|10625|              Emma              |          Chapitre XIV         
+10179|     F      |test|1.307|11051|       ABC: Petits Contes       |             Xavier            
+10179|     F      |test|1.734|11051|       ABC: Petits Contes       |             Sapin             
+10179|     F      |test|2.298|11051|       ABC: Petits Contes       |            Oreille            
+10179|     F      |test|1.359|11051|       ABC: Petits Contes       |              Ibis             
+10179|     F      |test|1.9|11051|       ABC: Petits Contes       |             Queue             
+10179|     F      |test|2.175|11051|       ABC: Petits Contes       |           Violettes           
+10179|     F      |test|1.667|11051|       ABC: Petits Contes       |             Fourmi            
+10179|     F      |test|1.592|11051|       ABC: Petits Contes       |             Yvonne            
+10179|     F      |test|1.381|11051|       ABC: Petits Contes       |            Moineau            
+10179|     F      |test|0.478|11051|       ABC: Petits Contes       |              Zéro             
+10179|     F      |test|3.541|11051|       ABC: Petits Contes       |             Canard            
+10179|     F      |test|2.141|11051|       ABC: Petits Contes       |             Tortue            
+10179|     F      |test|1.439|11051|       ABC: Petits Contes       |             Neige             
+10179|     F      |test|1.586|11051|       ABC: Petits Contes       |           Rossignol           
+10179|     F      |test|2.711|11051|       ABC: Petits Contes       |            Préface            
+10179|     F      |test|1.454|11051|       ABC: Petits Contes       |             Bélier            
+10179|     F      |test|2.708|11051|       ABC: Petits Contes       |              Loup             
+10179|     F      |test|0.639|11051|       ABC: Petits Contes       |           Demoiselle          
+10179|     F      |test|1.404|11051|       ABC: Petits Contes       |            Escargot           
+10179|     F      |test|1.6|11051|       ABC: Petits Contes       |              Pois             
+10179|     F      |test|1.018|11051|       ABC: Petits Contes       |           Kangourou           
+10179|     F      |test|0.833|11051|       ABC: Petits Contes       |              Âne              
+10179|     F      |test|0.72|11051|       ABC: Petits Contes       |             Jouets            
+10179|     F      |test|0.847|11051|       ABC: Petits Contes       |           Hirondelle          
+10179|     F      |test|0.599|11051|       ABC: Petits Contes       |             Gâteau            
+10179|     F      |test|0.838|11051|       ABC: Petits Contes       |            Univers            
+12080|     F      |test|14.767|11650|        Rouge et le noir        |     Volume 2 - Chapitre 07    
+12080|     F      |test|8.465|11650|        Rouge et le noir        |     Volume 2 - Chapitre 11    
+12080|     F      |test|16.647|11650|        Rouge et le noir        |     Volume 2 - Chapitre 13    
+2154|     F      |test|2.052|1167| Fables de La Fontaine, livre 04 (ver 2) |     Le Singe et le Dauphin    
+2154|     F      |test|1.462|1167| Fables de La Fontaine, livre 04 (ver 2) | Le Loup, la Chèvre et le Chevreau
+2154|     F      |test|4.064|1167| Fables de La Fontaine, livre 04 (ver 2) | L’Alouette et ses Petits avec le Maître d’un champ
+2154|     F      |test|2.193|2548| Dictionnaire des idées reçues  |               T               
+2154|     F      |test|4.181|2548| Dictionnaire des idées reçues  |               S               
+2154|     F      |test|1.537|2567| Fables de La Fontaine, livre 06 (ver 2) |          La Discorde          
+2154|     F      |test|1.079|2567| Fables de La Fontaine, livre 06 (ver 2) |  Le Cerf se voyant dans l’eau 
+2154|     F      |test|12.702|2576|         Boule de suif          |            La Bûche           
+2216|     M      |test|7.779|1259|     Comte de Monte-Cristo      |             Haydée            
+2216|     M      |test|21.77|1259|     Comte de Monte-Cristo      |    L’attelage gris pommelé    
+2216|     M      |test|1.243|1745|       Chants de Maldoror       |      Chant 1, strophe 02      
+2216|     M      |test|1.536|1745|       Chants de Maldoror       | Chant premier, strophe 3 : J'établirai dans quelques lignes...
+2085|     F      |test|5.792|1565|   Mille et une nuits, tome 2   |           154e nuit           
+2085|     F      |test|4.399|1565|   Mille et une nuits, tome 2   |           155e nuit           
+2085|     F      |test|5.104|1565|   Mille et une nuits, tome 2   |           156e nuit           
+2085|     F      |test|5.547|1565|   Mille et une nuits, tome 2   |           157e nuit           
+2223|     M      |test|4.661|1565|   Mille et une nuits, tome 2   |           164e nuit           
+2223|     M      |test|7.69|1745|       Chants de Maldoror       | Chant deuxième, strophe 6 : Cet enfant, qui est assis...
+2223|     M      |test|6.924|1745|       Chants de Maldoror       | Chant deuxième, strophe 4 : Il est minuit...
+2223|     M      |test|7.19|1745|       Chants de Maldoror       | Chant deuxième, strophe 5 : Faisant ma promenade quotidienne...
+2223|     M      |test|5.669|1745|       Chants de Maldoror       | Chant deuxième, strophe 1 : Où est-il passé ce premier chant...
+2223|     M      |test|3.951|1745|       Chants de Maldoror       | Chant deuxième, strophe 2 : Je saisis la plume...
+2223|     M      |test|3.808|1745|       Chants de Maldoror       | Chant deuxième, strophe 3 : Qu'il n'arrive pas le jour...
+2114|     M      |test|20.77|1656|         Chasse-galerie         |" La Chasse-Galerie (plus ""l'intro"")"
+2465|     M      |test|6.846|1943|      Apologie de Socrate       |           6e partie           
+2465|     M      |test|9.28|1943|      Apologie de Socrate       |           7e partie           
+2465|     M      |test|7.916|1943|      Apologie de Socrate       |           3e partie           
+2465|     M      |test|3.663|1943|      Apologie de Socrate       |           5e partie           
+2465|     M      |test|3.217|1943|      Apologie de Socrate       |           1e partie           
+2465|     M      |test|4.668|1943|      Apologie de Socrate       |           4e partie           
+2465|     M      |test|4.312|1943|      Apologie de Socrate       |           2e partie           
+5207|     F      |test|10.407|2928|            Commune             |        Les femmes de 70       
+5207|     F      |test|17.82|3078|         Contes cruels          |      15 - Sentimentalisme     
+5207|     F      |test|1.678|4230| Fables de La Fontaine, livre 09 (ver 2) |     Chat et le Renard, Le     
+7400|     F      |test|13.738|2928|            Commune             |         Le 31 octobre         
+7400|     F      |test|24.01|2928|            Commune             |      La réforme nationale     
+5476|     F      |test|18.837|3103| Vingt mille lieues sous les mers |      2-21 - Une hécatombe     
+5476|     F      |test|13.837|3103| Vingt mille lieues sous les mers |  1-17 - Une forêt sous-marine 
+5476|     F      |test|3.599|3103| Vingt mille lieues sous les mers | 2-20 - Par 47-24 de latitude et 17-28 de longitude
+5476|     F      |test|3.699|3103| Vingt mille lieues sous les mers | 2-22 - Les dernières paroles du capitaine Nemo
+4482|     M      |test|24.808|3103| Vingt mille lieues sous les mers |     1-14 - Le Fleuve-Noir     
+5790|     M      |test|39.961|4893|    Princesse de Monpensier     |   La Princesse de Monpensier  
+7762|     F      |test|25.158|8734|            Germinal            |            VII - 2            
+9834|     M      |test|5.345|9697|      Zadig ou la destinée      |    Chapitre VI. Le ministre   
+9834|     M      |test|6.226|9697|      Zadig ou la destinée      | Chapitre III. Le chien et le cheval
+9834|     M      |test|6.681|9697|      Zadig ou la destinée      | Chapitre VII. Les disputes et les audiences
+9834|     M      |test|7.779|9697|      Zadig ou la destinée      |     Chapitre IV. L'envieux    
+9834|     M      |test|7.573|9697|      Zadig ou la destinée      |     Chapitre I. Le borgne     
+9834|     M      |test|2.995|9697|      Zadig ou la destinée      |      Chapitre II. Le nez      
+9834|     M      |test|3.237|9697|      Zadig ou la destinée      |    Chapitre V. Les généreux   
