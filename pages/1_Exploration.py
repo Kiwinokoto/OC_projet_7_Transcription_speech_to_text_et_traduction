@@ -190,17 +190,6 @@ def main():
         st.write("Son d'origine")
         st.pyplot(fig=fig1, clear_figure=None, use_container_width=True)
 
-        # mel spectro
-        mel = whisper.log_mel_spectrogram(audio).to(tiny_model.device)
-        fig3 = plt.figure(figsize=(10, 4))
-        librosa.display.specshow(mel.numpy(), sr=sample_rate_sf, x_axis='time')
-        plt.colorbar(format='%+2.0f dB')
-        plt.title('Log Mel Spectrogram')
-        plt.xlabel('Time')
-        plt.ylabel('Mel Frequency')
-        plt.tight_layout()
-        st.pyplot(fig=fig3, clear_figure=None, use_container_width=True)
-
 # Run the app
 main()
 
