@@ -190,14 +190,6 @@ def main():
         st.write("Son d'origine")
         st.pyplot(fig=fig1, clear_figure=None, use_container_width=True)
 
-        # trimmed
-        st.write("Après Trimming")
-        audio_test = whisper.load_audio(exemple_path)
-        audio = whisper.pad_or_trim(audio_test)
-        fig2, ax = plt.subplots(figsize=(14, 4))
-        librosa.display.waveshow(audio, sr=sample_rate_sf)
-        st.pyplot(fig=fig2, clear_figure=None, use_container_width=True)
-
         # mel spectro
         mel = whisper.log_mel_spectrogram(audio).to(tiny_model.device)
         fig3 = plt.figure(figsize=(10, 4))
