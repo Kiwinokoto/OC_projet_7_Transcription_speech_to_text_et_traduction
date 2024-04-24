@@ -24,7 +24,6 @@ import plotly.express as px
 import librosa
 import librosa.display
 import soundfile as sf
-import sounddevice as sd
 
 # model
 import whisper
@@ -138,14 +137,6 @@ def doughnut(df, feature, title, width=6, height=6, nb_colors=2):
     return fig
 
 
-def play_opus(file_path):
-    """ Pour écouter un extrait audio. Compatible avec le format .opus ! """
-    # Load the Opus file
-    audio_data, sample_rate = sf.read(file_path) # renvoit le sample rate d'origine par defaut
-    # Play the audio
-    sd.play(audio_data, sample_rate)
-
-
 # Main function
 def main():
 
@@ -188,7 +179,7 @@ def main():
 
         # Ecouter
         exemple_path = test_data['path'][number]
-        play_opus(exemple_path)
+        st.audio(exemple_path)
 
         # Visualiser
         exemple_audio_sf, sample_rate_sf = sf.read(exemple_path)
