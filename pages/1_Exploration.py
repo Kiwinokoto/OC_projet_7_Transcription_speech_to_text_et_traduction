@@ -49,12 +49,12 @@ data, test_data = load_and_cache_data()
 @st.cache_resource
 def load_and_cache_model():
     # Load the pre-trained model
-    model = load_model('medium')
+    model = load_model('tiny')
 
     return model
 
 # Load the model
-model = load_and_cache_model()
+tiny_model = load_and_cache_model()
 
 
 def generate_random_pastel_colors(n):
@@ -199,7 +199,7 @@ def main():
         st.pyplot(fig=fig2, clear_figure=None, use_container_width=True)
 
         # mel spectro
-        mel = whisper.log_mel_spectrogram(audio).to(model.device)
+        mel = whisper.log_mel_spectrogram(audio).to(tiny_model.device)
         fig3 = plt.figure(figsize=(10, 4))
         librosa.display.specshow(mel.numpy(), sr=sample_rate_sf, x_axis='time')
         plt.colorbar(format='%+2.0f dB')
