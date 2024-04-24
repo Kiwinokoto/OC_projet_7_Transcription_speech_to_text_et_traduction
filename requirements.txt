@@ -3,6 +3,8 @@ pandas
 librosa == 0.10.1
 streamlit
 audio-recorder-streamlit
+soundfile
+sounddevice
 matplotlib
 plotly
 git+https://github.com/openai/whisper.git

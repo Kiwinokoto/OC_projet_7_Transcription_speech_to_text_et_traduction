@@ -5,6 +5,7 @@ import subprocess
 
 import streamlit as st
 from audio_recorder_streamlit import audio_recorder
+st.set_page_config(layout='wide')
 
 # paths, folders/files
 import os, sys, random, re
@@ -22,6 +23,8 @@ import plotly.express as px
 # audio
 import librosa
 import librosa.display
+import soundfile as sf
+import sounddevice as sd
 
 # model
 import whisper
@@ -41,6 +44,18 @@ def load_and_cache_data():
 
 # Load it
 data, test_data = load_and_cache_data()
+
+
+# load and cache the model
+@st.cache_resource
+def load_and_cache_model():
+    # Load the pre-trained model
+    model = load_model('medium')
+
+    return model
+
+# Load the model
+model = load_and_cache_model()
 
 
 def generate_random_pastel_colors(n):
@@ -97,12 +112,12 @@ def doughnut(df, feature, title, width=6, height=6, nb_colors=2):
 
     patches, texts, autotexts = plt.pie(x=pie['count_per_type'], autopct='%1.1f%%',
         startangle=-30, labels=pie.index, textprops={'fontsize':11, 'color':'#000'},
-        labeldistance=1.25, pctdistance=0.85, colors=colors)
+        labeldistance=1.3, pctdistance=0.85, colors=colors)
 
     plt.title(
     label=title,
     fontdict={"fontsize":17},
-    pad=20
+    pad=30
     )
 
     for text in texts:
@@ -123,23 +138,27 @@ def doughnut(df, feature, title, width=6, height=6, nb_colors=2):
     return fig
 
 
+def play_opus(file_path):
+    """ Pour écouter un extrait audio. Compatible avec le format .opus ! """
+    # Load the Opus file
+    audio_data, sample_rate = sf.read(file_path) # renvoit le sample rate d'origine par defaut
+    # Play the audio
+    sd.play(audio_data, sample_rate)
+
+
 # Main function
 def main():
 
-    page = 'app'
+    page = 'info'
 
     with st.sidebar:
         st.header("Exploration")
-        if st.button("Infos générales"):
+        if st.button("Infos générales", key='info'):
             page = 'info'
-        if st.button("Données texte"):
+        if st.button("Données texte", key='texte'):
             page = 'texte'
-        if st.button("Données audio"):
+        if st.button("Données audio", key='audio'):
             page = 'audio'
-
-        st.header("App")
-        if st.button("Traduction"):
-            page = 'app'
 
     if page == 'info':
         st.write("Données disponibles : 2 426 extraits audio + les transcripts correspondants, provenant de 22 livres : ")
@@ -150,6 +169,7 @@ def main():
         col1, col2 = st.columns(2)
 
         with col1: #describe
+            # top margin ?
             st.write("Nombre de mots par extrait :")
             st.dataframe(test_data[['nb_words']].describe(),
                         column_config={"nb_words": st.column_config.NumberColumn(format="%d")})
@@ -159,15 +179,44 @@ def main():
             st.plotly_chart(fig2, use_container_width=True)
 
     if page == 'audio':
-        number = st.number_input("Choisissez le numéro d'un extrait : ",
-                                 min_value = 0, max_value = 2425,
-                                 value=None, placeholder="0 - 2425")
-        # origine
-        # trimmed
-        # mel spectro
+        # Selectionner aléatoirement
+        number = random.randint(0, 2425)
 
-    if page == 'app':
-        st.write("app")
+        # Lire
+        st.write(f" Voici un extrait aléatoire (numéro :blue[ {number}]) :")
+        st.write(f"Transcript : {test_data['true_transcript'][number]}")
+
+        # Ecouter
+        exemple_path = test_data['path'][number]
+        play_opus(exemple_path)
+
+        # Visualiser
+        exemple_audio_sf, sample_rate_sf = sf.read(exemple_path)
+
+        # son d'origine
+        fig1, ax = plt.subplots(figsize=(14, 4))
+        librosa.display.waveshow(exemple_audio_sf, sr=sample_rate_sf)
+        st.write("Son d'origine")
+        st.pyplot(fig=fig1, clear_figure=None, use_container_width=True)
+
+        # trimmed
+        st.write("Après Trimming")
+        audio_test = whisper.load_audio(exemple_path)
+        audio = whisper.pad_or_trim(audio_test)
+        fig2, ax = plt.subplots(figsize=(14, 4))
+        librosa.display.waveshow(audio, sr=sample_rate_sf)
+        st.pyplot(fig=fig2, clear_figure=None, use_container_width=True)
+
+        # mel spectro
+        mel = whisper.log_mel_spectrogram(audio).to(model.device)
+        fig3 = plt.figure(figsize=(10, 4))
+        librosa.display.specshow(mel.numpy(), sr=sample_rate_sf, x_axis='time')
+        plt.colorbar(format='%+2.0f dB')
+        plt.title('Log Mel Spectrogram')
+        plt.xlabel('Time')
+        plt.ylabel('Mel Frequency')
+        plt.tight_layout()
+        st.pyplot(fig=fig3, clear_figure=None, use_container_width=True)
 
 # Run the app
 main()

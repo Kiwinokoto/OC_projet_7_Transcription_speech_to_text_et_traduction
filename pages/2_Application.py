@@ -39,6 +39,7 @@ def handle_uploaded_file(model, recorded_speech):
     audio, sample_rate = librosa.load(BytesIO(recorded_speech))
     transcription = model.transcribe(audio, fp16 = False)['text']
     st.write(f"`{transcription}`")
+    st.write("`(Veuillez patienter prendant la traduction...)`")
     translation = model.transcribe(audio, language = 'en', fp16 = False)['text']
     st.write(f"`{translation}`")
 
@@ -60,8 +61,7 @@ def main(model):
     # Handle file upload
     if audio_bytes is not None:
         st.audio(audio_bytes, format="audio/wav")
-        st.write(f"`{type(audio_bytes)}`")
-        st.write(f"`{len(audio_bytes)}`")
+        st.write("`(Veuillez patienter prendant la transcription...)`")
 
         handle_uploaded_file(model=model, recorded_speech=audio_bytes)
 
