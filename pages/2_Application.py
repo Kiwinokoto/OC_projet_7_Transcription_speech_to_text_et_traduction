@@ -41,7 +41,7 @@ def handle_uploaded_file(model, recorded_speech):
     st.write(f":blue[{transcription}]")
     st.write("(Veuillez patienter prendant la traduction...)")
     translation = model.transcribe(audio, language = 'en', fp16 = False)['text']
-    st.write(f":blue[{translation}")
+    st.write(f":blue[{translation}]")
 
 
 # Main function
