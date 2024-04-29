@@ -1,4 +1,4 @@
-# https://rosetta-stones.streamlit.app/
+# https://whisper-medium.streamlit.app/
 
 
 import subprocess
@@ -39,7 +39,7 @@ def handle_uploaded_file(model, recorded_speech):
     audio, sample_rate = librosa.load(BytesIO(recorded_speech))
     transcription = model.transcribe(audio, fp16 = False)['text']
     st.write(f" :blue[{transcription}] ")
-    st.write("(Veuillez patienter prendant la traduction...)")
+    st.write("(Veuillez patienter pendant la traduction...)")
     translation = model.transcribe(audio, language = 'en', fp16 = False)['text']
     st.write(f" :blue[{translation}] ")
 
@@ -61,7 +61,7 @@ def main(model):
     # Handle file upload
     if audio_bytes is not None:
         st.audio(audio_bytes, format="audio/wav")
-        st.write("(Veuillez patienter prendant la transcription...)")
+        st.write("(Veuillez patienter pendant la transcription...)")
 
         handle_uploaded_file(model=model, recorded_speech=audio_bytes)
 
